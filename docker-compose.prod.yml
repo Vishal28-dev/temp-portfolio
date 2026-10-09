@@ -1,0 +1,33 @@
+# Production parity: built assets served by nginx, backend without a watcher.
+#   make prod-up   /   make prod-down
+services:
+  mongo:
+    ports: !reset []
+
+  backend:
+    build:
+      target: prod
+    environment:
+      NODE_ENV: production
+    volumes:
+      - api-uploads:/app/uploads
+    command: ["node", "src/server.js"]
+
+  frontend:
+    build:
+      target: prod
+      args:
+        VITE_API_URL: ${VITE_API_URL:-/api/v1}
+        VITE_SITE_URL: ${VITE_SITE_URL:-http://localhost:8080}
+        VITE_SITE_NAME: ${VITE_SITE_NAME:-Vishal}
+    environment:
+      API_UPSTREAM: http://backend:4000
+    volumes: !reset []
+    ports:
+      - "${FRONTEND_PROD_PORT:-8080}:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 6
+      start_period: 10s

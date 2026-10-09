@@ -1,0 +1,26 @@
+[
+  { "name": "HTML5",         "slug": "html5",       "layer": "L01", "category": "frontend", "proficiency": 5, "featured": true,  "order": 1, "color": "#E44D26" },
+  { "name": "CSS3",          "slug": "css3",        "layer": "L01", "category": "frontend", "proficiency": 5, "featured": true,  "order": 2, "color": "#264DE4" },
+  { "name": "JavaScript",    "slug": "javascript",  "layer": "L01", "category": "frontend", "proficiency": 5, "featured": true,  "order": 3, "color": "#F7DF1E" },
+  { "name": "React",         "slug": "react",       "layer": "L01", "category": "frontend", "proficiency": 4, "featured": true,  "order": 4, "color": "#61DAFB" },
+  { "name": "Next.js",       "slug": "nextjs",      "layer": "L01", "category": "frontend", "proficiency": 4, "featured": true,  "order": 5, "color": "#EDE9DF" },
+
+  { "name": "Three.js",      "slug": "threejs",     "layer": "L02", "category": "frontend", "proficiency": 3, "featured": true,  "order": 1, "color": "#EDE9DF" },
+  { "name": "WebGL / GLSL",  "slug": "webgl-glsl",  "layer": "L02", "category": "frontend", "proficiency": 3, "featured": true,  "order": 2, "color": "#E8632A" },
+  { "name": "GSAP",          "slug": "gsap",        "layer": "L02", "category": "frontend", "proficiency": 3, "featured": false, "order": 3, "color": "#88CE02" },
+
+  { "name": "Node.js",       "slug": "nodejs",      "layer": "L03", "category": "backend",  "proficiency": 4, "featured": true,  "order": 1, "color": "#5FA04E" },
+  { "name": "Express",       "slug": "express",     "layer": "L03", "category": "backend",  "proficiency": 4, "featured": true,  "order": 2, "color": "#EDE9DF" },
+  { "name": "REST APIs",     "slug": "rest-apis",   "layer": "L03", "category": "backend",  "proficiency": 4, "featured": false, "order": 3, "color": "#F2C14E" },
+
+  { "name": "MongoDB",       "slug": "mongodb",     "layer": "L04", "category": "database", "proficiency": 4, "featured": true,  "order": 1, "color": "#47A248" },
+  { "name": "Mongoose",      "slug": "mongoose",    "layer": "L04", "category": "database", "proficiency": 4, "featured": false, "order": 2, "color": "#880000" },
+
+  { "name": "Docker",        "slug": "docker",      "layer": "L05", "category": "devops",   "proficiency": 4, "featured": true,  "order": 1, "color": "#2496ED" },
+  { "name": "Nginx",         "slug": "nginx",       "layer": "L05", "category": "devops",   "proficiency": 3, "featured": false, "order": 2, "color": "#009639" },
+  { "name": "Git",           "slug": "git",         "layer": "L05", "category": "tools",    "proficiency": 4, "featured": false, "order": 3, "color": "#F05032" },
+
+  { "name": "GitHub",        "slug": "github",      "layer": "L06", "category": "tools",    "proficiency": 4, "featured": true,  "order": 1, "color": "#EDE9DF" },
+  { "name": "Render",        "slug": "render",      "layer": "L06", "category": "devops",   "proficiency": 3, "featured": true,  "order": 2, "color": "#46E3B7" },
+  { "name": "Vercel",        "slug": "vercel",      "layer": "L06", "category": "devops",   "proficiency": 4, "featured": true,  "order": 3, "color": "#EDE9DF" }
+]

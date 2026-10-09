@@ -1,0 +1,6 @@
+[
+  { "key": "contactEnabled",  "value": true,  "description": "Accept contact form submissions" },
+  { "key": "guestbookEnabled","value": true,  "description": "Allow visitors to sign the guestbook" },
+  { "key": "maxQuality",      "value": "high","description": "Ceiling for the 3D quality tier: high | medium | low" },
+  { "key": "maintenanceMode", "value": false, "description": "Show a maintenance notice instead of the site" }
+]

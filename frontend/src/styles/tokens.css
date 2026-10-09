@@ -1,0 +1,50 @@
+/* ------------------------------------------------------------------
+   Core-sample palette. The page descends from bone at the surface to
+   abyss at depth; --ground and --ink are driven at runtime from scroll
+   progress (see lib/strata.js) so DOM and WebGL share one palette.
+   ------------------------------------------------------------------ */
+:root {
+  /* strata */
+  --bone: #ede9df;
+  --ash: #d7d2c6;
+  --clay: #9ea39b;
+  --slate: #4a5a5e;
+  --petrol: #243138;
+  --deep: #131c22;
+  --abyss: #080b0e;
+
+  /* accents — copper is the only spend */
+  --copper: #e8632a;
+  --copper-deep: #b8480f;
+  --sulphur: #f2c14e;
+
+  /* semantic, never decorative */
+  --live: #4fd1a5;
+  --warn: #f2c14e;
+  --danger: #ff6b5e;
+
+  /* runtime-driven */
+  --ground: #080b0e;
+  --ink: #dcd8ce;
+  --ink-dim: #6e7a7e;
+  --rule: rgba(220, 216, 206, 0.14);
+  --accent: #e8632a;
+
+  /* type */
+  --display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* metrics */
+  --pad: clamp(20px, 5vw, 80px);
+  --maxw: 1240px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --z-scene: 0;
+  --z-scrim: 5;
+  --z-content: 10;
+  --z-chrome: 40;
+  --z-nav: 50;
+  --z-cursor: 70;
+  --z-preloader: 90;
+}

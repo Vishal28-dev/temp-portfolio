@@ -1,0 +1,160 @@
+[
+  {
+    "slug": "stark-interface",
+    "title": "Stark Interface",
+    "tagline": "Marvel-themed web app on a containerised Postgres stack",
+    "summary": "A Next.js interface with a themed authorisation flow, backed by PostgreSQL and shipped as a complete Docker Compose stack that comes up with a single command.",
+    "status": "published",
+    "featured": true,
+    "order": 1,
+    "year": 2026,
+    "role": "Design & full-stack build",
+    "layers": ["L04", "L05"],
+    "tags": ["full-stack", "docker", "database"],
+    "stack": [
+      { "name": "Next.js", "category": "frontend" },
+      { "name": "React", "category": "frontend" },
+      { "name": "PostgreSQL", "category": "database" },
+      { "name": "Docker", "category": "devops" },
+      { "name": "JWT", "category": "backend" }
+    ],
+    "highlights": [
+      "PostgreSQL containerised alongside the app, seeded from init.sql",
+      "One docker compose up brings the whole stack online",
+      "Token-based auth with hashed credentials"
+    ],
+    "links": { "repo": "https://github.com/Vishal28-dev/stark-interface-app" },
+    "media": {
+      "cover": {
+        "url": "/media/projects/stark-interface-app.jpg",
+        "alt": "Stark Interface authorisation screen",
+        "width": 1440,
+        "height": 900
+      }
+    }
+  },
+  {
+    "slug": "bulky",
+    "title": "Bulky",
+    "tagline": "Bulk YouTube scheduler for Windows and macOS",
+    "summary": "A cross-platform desktop app that queues a whole folder of videos and schedules them onto YouTube through the Nuke platform, checking account, plan and channel before it starts.",
+    "status": "published",
+    "featured": true,
+    "order": 2,
+    "year": 2026,
+    "role": "Solo build",
+    "layers": ["L01", "L03"],
+    "tags": ["desktop", "flutter", "api"],
+    "stack": [
+      { "name": "Dart", "category": "frontend" },
+      { "name": "Flutter", "category": "frontend" },
+      { "name": "C++", "category": "tools" },
+      { "name": "Swift", "category": "tools" },
+      { "name": "REST", "category": "backend" }
+    ],
+    "highlights": [
+      "Ships as a native binary for both Windows and macOS",
+      "Queues a folder of videos and schedules them unattended",
+      "Verifies account, plan and connected channel before running"
+    ],
+    "links": { "repo": "https://github.com/Vishal28-dev/bulky" },
+    "media": {
+      "cover": { "url": "/media/projects/bulky.jpg", "alt": "Bulky", "width": 1440, "height": 900 }
+    }
+  },
+  {
+    "slug": "phoneblock",
+    "title": "PhoneBlock",
+    "tagline": "Two-way call firewall for Android",
+    "summary": "Instantly drops incoming calls from a chosen number and cancels outgoing calls to it, wiring Flutter to Android's CallScreening and CallRedirection services through a native Kotlin layer.",
+    "status": "published",
+    "featured": true,
+    "order": 3,
+    "year": 2026,
+    "role": "Solo build",
+    "layers": ["L01", "L05"],
+    "tags": ["android", "flutter", "native"],
+    "stack": [
+      { "name": "Dart", "category": "frontend" },
+      { "name": "Flutter", "category": "frontend" },
+      { "name": "Kotlin", "category": "backend" },
+      { "name": "Android SDK", "category": "tools" }
+    ],
+    "highlights": [
+      "CallScreeningService rejects matching incoming calls",
+      "CallRedirectionService cancels matching outgoing calls",
+      "Material 3 dark glass interface over a native Kotlin bridge"
+    ],
+    "links": { "repo": "https://github.com/Vishal28-dev/phoneblock" },
+    "media": {
+      "cover": { "url": "/media/projects/phoneblock.jpg", "alt": "PhoneBlock", "width": 1440, "height": 900 }
+    }
+  },
+  {
+    "slug": "totp-verification-api",
+    "title": "TOTP Verification API",
+    "tagline": "Serverless two-factor authentication",
+    "summary": "A serverless endpoint that verifies time-based one-time passwords for two-factor sign-in, reading each user's secret from Supabase and validating tokens with Speakeasy.",
+    "status": "published",
+    "featured": false,
+    "order": 4,
+    "year": 2025,
+    "role": "Solo build",
+    "layers": ["L03", "L04"],
+    "tags": ["api", "auth", "serverless"],
+    "stack": [
+      { "name": "Next.js", "category": "backend" },
+      { "name": "Supabase", "category": "database" },
+      { "name": "Speakeasy", "category": "backend" },
+      { "name": "JavaScript", "category": "backend" }
+    ],
+    "highlights": [
+      "POST /api/verify-totp validates a token against the stored secret",
+      "Secrets held in Supabase, never in the client",
+      "Deployed as a serverless route"
+    ],
+    "links": {
+      "live": "https://verify-and-store-db.vercel.app",
+      "repo": "https://github.com/Vishal28-dev/verify-and-store-db"
+    },
+    "media": {
+      "cover": {
+        "url": "/media/projects/verify-and-store-db.jpg",
+        "alt": "TOTP verification sign-in screen",
+        "width": 1440,
+        "height": 900
+      }
+    }
+  },
+  {
+    "slug": "ryzen-26",
+    "title": "Ryzen '26",
+    "tagline": "Tech fest site for the IT department",
+    "summary": "The event site for Ryzen '26 — schedule, event listings, location and registration, built from scratch with a scroll-driven front page.",
+    "status": "published",
+    "featured": false,
+    "order": 5,
+    "year": 2026,
+    "role": "Design & front-end build",
+    "layers": ["L02", "L06"],
+    "tags": ["frontend", "events", "motion"],
+    "stack": [
+      { "name": "HTML", "category": "frontend" },
+      { "name": "CSS", "category": "frontend" },
+      { "name": "JavaScript", "category": "frontend" },
+      { "name": "Vercel", "category": "devops" }
+    ],
+    "highlights": [
+      "Scroll-driven landing sequence built without a framework",
+      "Event schedule, location and contact flows",
+      "Shipped on Vercel"
+    ],
+    "links": {
+      "live": "https://ryzen-peach.vercel.app",
+      "repo": "https://github.com/Vishal28-dev/ryzen"
+    },
+    "media": {
+      "cover": { "url": "/media/projects/ryzen.jpg", "alt": "Ryzen '26 event site", "width": 1440, "height": 900 }
+    }
+  }
+]

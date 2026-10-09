@@ -1,0 +1,38 @@
+{
+  "key": "primary",
+  "name": "Vishal",
+  "initials": "V",
+  "headline": "Full-stack developer",
+  "roles": ["Full-stack developer", "Interface engineer", "I design & code for web"],
+  "bio": {
+    "short": "I build fast, production-ready web applications end to end — interfaces that move like they weigh something, and the services and data layers underneath that keep them honest.",
+    "long": "I'm Vishal, a full-stack developer. My work spans the whole stack: crafting clean, modern layouts from scratch with HTML5 and CSS3, building scalable interfaces in React and Next.js, and standing up the Node services and MongoDB schemas behind them.\n\nBeyond writing the code, I care about the whole development lifecycle — version control through GitHub, containerising applications with Docker so environments stay consistent, and automated deployments.\n\nMy main focus these days is building interesting and creative web experiences. I like to code things from scratch and enjoy bringing ideas to life in the browser."
+  },
+  "location": "India",
+  "timezone": "Asia/Kolkata",
+  "availability": {
+    "status": "open",
+    "note": "Open to full-stack roles and freelance work.",
+    "openTo": ["Full-time", "Freelance", "Collaboration"]
+  },
+  "avatar": {
+    "url": "/media/vishal.jpg",
+    "alt": "Vishal",
+    "width": 1200,
+    "height": 1600
+  },
+  "resume": { "url": "" },
+  "socials": [
+    { "platform": "github", "label": "GitHub", "url": "https://github.com/Vishal28-dev", "handle": "Vishal28-dev", "order": 1 },
+    { "platform": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/vishal-works-663708314/", "handle": "vishal-works", "order": 2 },
+    { "platform": "instagram", "label": "Instagram", "url": "https://www.instagram.com/the_loveable_freak_28", "handle": "the_loveable_freak_28", "order": 3 },
+    { "platform": "email", "label": "Email", "url": "mailto:vishalworks28@gmail.com", "handle": "vishalworks28@gmail.com", "order": 4 }
+  ],
+  "quote": "Learning, Living, and Leveling Up.",
+  "seo": {
+    "title": "Vishal — Full-stack developer",
+    "description": "Full-stack developer building fast, production-ready web applications end to end. React, Node, MongoDB, Docker.",
+    "ogImage": "/media/og.jpg",
+    "keywords": ["full-stack developer", "react", "node.js", "mongodb", "docker", "portfolio", "webgl"]
+  }
+}

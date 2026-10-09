@@ -1,0 +1,110 @@
+# ==========================================================================
+#  Render blueprint — deploys the API and the site from this repo.
+#
+#  Render has no managed MongoDB, so the database lives on MongoDB Atlas
+#  (the free M0 tier is plenty) and its URI is injected as a secret.
+#  Every value marked `sync: false` must be filled in on the Render dashboard
+#  and is never committed here.
+#
+#  Deploy:  Render → New → Blueprint → point at this repository.
+# ==========================================================================
+
+services:
+  # ---------------------------------------------------------------- API
+  - type: web
+    name: portfolio-api
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    dockerCommand: node src/server.js
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "4000"
+      - key: API_PREFIX
+        value: /api/v1
+      - key: LOG_LEVEL
+        value: info
+
+      # MongoDB Atlas connection string, e.g.
+      # mongodb+srv://user:pass@cluster.mongodb.net/portfolio?retryWrites=true&w=majority
+      - key: MONGO_URI
+        sync: false
+
+      # Comma-separated list of allowed browser origins — set this to the
+      # static site's URL once Render has assigned it.
+      - key: CORS_ORIGIN
+        sync: false
+
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: IP_HASH_SALT
+        generateValue: true
+      - key: JWT_ACCESS_TTL
+        value: 15m
+      - key: JWT_REFRESH_TTL
+        value: 7d
+
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_NAME
+        value: Vishal
+
+      - key: RATE_LIMIT_WINDOW_MS
+        value: "900000"
+      - key: RATE_LIMIT_MAX
+        value: "300"
+      - key: CONTACT_RATE_LIMIT_MAX
+        value: "5"
+      - key: GUESTBOOK_RATE_LIMIT_MAX
+        value: "3"
+      - key: ENABLE_GUESTBOOK
+        value: "true"
+      - key: ENABLE_ANALYTICS
+        value: "true"
+
+  # ---------------------------------------------------------------- site
+  - type: web
+    name: portfolio-web
+    runtime: static
+    plan: free
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./frontend/dist
+    rootDir: ./frontend
+    autoDeploy: true
+    pullRequestPreviewsEnabled: true
+    envVars:
+      # Absolute API URL, e.g. https://portfolio-api.onrender.com/api/v1
+      - key: VITE_API_URL
+        sync: false
+      - key: VITE_SITE_URL
+        sync: false
+      - key: VITE_SITE_NAME
+        value: Vishal
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: camera=(), microphone=(), geolocation=()
+    routes:
+      # SPA fallback so /admin and deep links resolve.
+      - type: rewrite
+        source: /*
+        destination: /index.html

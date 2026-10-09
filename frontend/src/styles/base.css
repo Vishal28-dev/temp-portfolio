@@ -1,0 +1,140 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* A class that sets `display` overrides the UA rule behind the `hidden`
+   attribute. Without this guard, [hidden] elements stay laid out and keep
+   intercepting pointer events. */
+[hidden] { display: none !important; }
+
+html {
+  scroll-behavior: auto; /* Lenis owns scrolling */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--display);
+  font-variation-settings: 'wdth' 100, 'wght' 400;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: color 300ms linear;
+}
+
+body.is-locked { overflow: hidden; }
+
+@media (pointer: fine) {
+  body.has-cursor,
+  body.has-cursor a,
+  body.has-cursor button,
+  body.has-cursor label { cursor: none; }
+}
+
+::selection { background: var(--copper); color: #fff; }
+
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+
+a { color: inherit; }
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Narrow on purpose: only the elements that actually read from --ink, so the
+   polarity flip animates without putting a transition on every node. */
+h1, h2, h3, h4, p, blockquote, figcaption, dt, dd {
+  transition: color 300ms linear;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-variation-settings: 'wdth' 112, 'wght' 750;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+p { margin: 0; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--pad);
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--copper);
+  color: #0a0505;
+  font-family: var(--mono);
+  font-size: 13px;
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  transition: top 200ms var(--ease);
+}
+.skip-link:focus { top: 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- shared primitives ---------- */
+.shell {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-variation-settings: normal;
+}
+
+.mono { font-family: var(--mono); font-variation-settings: normal; }
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* ---------- reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 900ms var(--ease),
+    transform 900ms var(--ease);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

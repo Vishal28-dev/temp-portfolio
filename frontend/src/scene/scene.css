@@ -1,0 +1,43 @@
+.scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-scene);
+  display: block;
+  pointer-events: none;
+}
+
+.scene--fallback {
+  background:
+    radial-gradient(58% 46% at 68% 30%, rgba(232, 99, 42, 0.20), transparent 68%),
+    radial-gradient(42% 40% at 28% 74%, rgba(242, 193, 78, 0.12), transparent 70%);
+  transition: opacity 600ms linear;
+}
+
+/* Keeps body copy legible over the swarm without hiding it. Painted from the
+   live --ground token, so it lightens on bone strata and darkens on abyss. */
+.scene-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-scrim);
+  pointer-events: none;
+  /* A solid fill behind a *static* mask. The colour changes every scroll
+     frame, and repainting a flat colour is cheap; re-rasterising a
+     multi-stop color-mix() gradient at 60fps is not. The mask never
+     changes, so it stays cached. */
+  background: var(--ground);
+  -webkit-mask-image:
+    linear-gradient(100deg, #000 0%, #000 30%, rgba(0, 0, 0, 0.82) 46%, rgba(0, 0, 0, 0.34) 62%, transparent 78%);
+  mask-image:
+    linear-gradient(100deg, #000 0%, #000 30%, rgba(0, 0, 0, 0.82) 46%, rgba(0, 0, 0, 0.34) 62%, transparent 78%);
+}
+
+@media (max-width: 900px) {
+  .scene-scrim {
+    -webkit-mask-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.82) 45%, #000 100%);
+    mask-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.82) 45%, #000 100%);
+  }
+}
